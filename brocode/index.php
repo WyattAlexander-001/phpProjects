@@ -40,12 +40,23 @@
         <input type="submit" value="ITERATE!"><br>
     </form>
 
+    <form action="index.php" method="post">
+        <label>Credit Card: </label><br>
+        <input type="radio" name="credit_card" value="Visa">Visa<br>
+        <input type="radio" name="credit_card" value="Mastercard">MasterCard<br>
+        <input type="radio" name="credit_card" value="American Express">American Express<br>
+        <input type="radio" name="credit_card" value="Discover">Discover<br>
+        <input type="submit" name="confirm" value="confirm"><br>
+    </form>
+
     
 </body>
 </html>
 
 //All PHP code is in the same file as the HTML code. This is not best practice, but it is for learning purposes.
 <?php
+    include("header.html"); //Include header file
+    include("header.html");
 
 //For Chrome Live Server extension:
 //http://localhost/phpProjects/brocode/
@@ -242,7 +253,46 @@
         echo "Age is not empty<br>";
     }
 
+    if(isset($_POST["confirm"])){
+        if(isset($_POST["credit_card"])){
+            $credit_card = $_POST["credit_card"];
+            echo "You chose $credit_card!<br>";
+        }else{
+            echo "Please choose a credit card!<br>";
+        }
+    }
+    
+    //Functions
+    function sayHello(){
+        echo "Hello!<br>";
+    }
+
+    sayHello();
+    
+    function sayHelloTo($name){
+        echo "Hello $name!<br>";
+    }
+
+    sayHelloTo("Wyatt");
+
+    //Function with default value
+    function sayHelloToDefault($name = "User"){
+        echo "Hello $name!<br>";
+    }
+
+    sayHelloToDefault();
+    sayHelloToDefault("Jimmy");
+
+    //Sanitize user input
+    if(isset($_POST["login"])){
+        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    }
 
 
 
+
+
+
+    include("footer.html"); //Include footer file
 ?>

@@ -38,7 +38,9 @@
 </body>
 </html>
 
+//All PHP code is in the same file as the HTML code. This is not best practice, but it is for learning purposes.
 <?php
+
 //For Chrome Live Server extension:
 //http://localhost/phpProjects/brocode/
 //http://127.0.0.1:5500/
@@ -82,8 +84,8 @@
     $x = $_POST["x"];
     $total = null;
     $total = abs($x);
-    echo "Prior to abs: ". $x."<br>";
-    echo "Total after abs: ". $total."<br>";
+    echo "<h2>Prior to abs: ". $x."<br></h2>";
+    echo "<h2>Total after abs: ". $total."<br></h2>";
 
     //Other math functions
     echo "Ceil: ". ceil(4.6)."<br>";
@@ -103,4 +105,19 @@
     echo "The area of a circle with a radius of $radius is $area<br>"; 
     echo "The circumference of a circle with a radius of $radius is $circumference<br>";
     echo "The volume of a circle with a radius of $radius is $volume<br>";
+
+    //If statements
+    $age = 19;
+    if($age >= 21){
+        echo "$age ";
+        echo "You can drink!<br>";
+    } else if($age >= 18){
+        echo "$age ";
+        echo "You can't drink! But can drive!<br>";
+    }else{
+        echo "$age ";
+        echo "You can't drink!<br>";
+    }
+
+
 ?>

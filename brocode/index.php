@@ -6,12 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php" method="get">
+    <form action="index.php" method="post">
         <label for="">Username:</label><br>
         <input type="text" name="username" id="username"><br>
         <label for="">Password:</label><br>
         <input type="password" name="password" id="password"><br>
         <button type="submit">Submit</button><br>
+    </form>
+
+    <hr>
+
+    <form action="index.php" method="post">
+        <label>Quantity: </label><br>
+        <input type="number" name="quantity" id="quantity"><br>
+        <input type="submit" value="Submit"><br>
     </form>
 
     
@@ -49,10 +57,13 @@
     echo "5 % 2 = ".(5%2)."<br>";
     echo "5 ** 2 = ".(5**2)."<br>";
 
-    // $_GET and $_POST
-    echo $_GET['username']."<br>"; //Will print the username from the form
-    echo $_GET['password']."<br>"; //Will print the password from the form
+    // $_GET and $_POST, Post is more secure
+    echo $_POST['username']."<br>"; //Will print the username from the form
+    echo $_POST['password']."<br>"; //Will print the password from the form
 
-
+    $item = "pizza";
+    $price = 4.99;
+    $quantity = $_POST['quantity'];
+    echo "You ordered $quantity $item(s) and your total is: $".($price*$quantity)."<br>";
 
 ?>

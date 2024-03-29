@@ -34,6 +34,12 @@
         <input type="submit" value="Calculate!"><br>
     </form>
 
+    <form action="index.php" method="post">
+        <label>Counter: </label><br>
+        <input type="text" name="counter" id="counter"><br>
+        <input type="submit" value="ITERATE!"><br>
+    </form>
+
     
 </body>
 </html>
@@ -118,6 +124,125 @@
         echo "$age ";
         echo "You can't drink!<br>";
     }
+
+    //Switch statements
+    $day = "Friday";
+    switch($day){
+        case "Monday":
+            echo "It's Monday!<br>";
+            break;
+        case "Tuesday":
+            echo "It's Tuesday!<br>";
+            break;
+        case "Wednesday":
+            echo "It's Wednesday!<br>";
+            break;
+        case "Thursday":
+            echo "It's Thursday!<br>";
+            break;
+        case "Friday":
+            echo "It's Friday!<br>";
+            break;
+        case "Saturday":
+            echo "It's Saturday!<br>";
+            break;
+        case "Sunday":
+            echo "It's Sunday!<br>";
+            break;
+        default:
+            echo "Invalid day!<br>";
+            break;
+    }
+
+    //For loops
+    $counter = $_POST["counter"];
+    for($i = 0; $i < $counter; $i++){
+        echo "For loop iteration Count Up: $i<br>";
+    }
+    //Same For Loop but counting down
+    for($i = $counter; $i > 0; $i--){
+        echo "For loop iteration Count Down: $i<br>";
+    }
+
+    //Arrays
+    $games = array("Fortnite", "Apex Legends", "Valorant", "Minecraft");
+    echo $games[0]."<hr><br><hr>";
+    //For loop to iterate through array
+    for($i = 0; $i < count($games); $i++){
+        echo $games[$i]."<br>";
+    }
+
+    echo "<hr><br><hr>";
+
+    //For each loop
+    foreach($games as $game){
+        echo $game."<br>";
+    }
+
+    //Making a list HTML with an array
+    echo "<h2>Some Games... :</h2>";
+    echo "<ol>";
+    foreach($games as $game){
+        echo "<li>$game</li>";
+    }
+    echo "</ol>";
+    echo "There are currently ".count($games)." games in the list<br>"; //Count of array
+
+    //Associative arrays
+    $person = array("name" => "Wyatt", 
+                    "age" => 29, 
+                    "hobbies" => array("Gaming", "Coding", "Reading"));
+    echo "NAME: ".$person["name"]."<br>";
+    echo "AGE: ". $person["age"]."<br>";
+    echo "HOBBIES: ".$person["hobbies"][0]."&nbsp;&nbsp;&nbsp;&nbsp;".$person["hobbies"][1].",".$person["hobbies"][2]."<br>";
+
+    //For each loop for associative arrays, must use key value pair country and capital
+    $capitals = array("USA" => "Washington D.C.", 
+                        "France" => "Paris", 
+                        "Germany" => "Berlin", 
+                        "Italy" => "Rome", 
+                        "Japan" => "Tokyo");
+    echo "<h2>Some Capitals... :</h2>";
+    foreach($capitals as $key => $value){
+        echo "The capital of $key is $value<br>";
+    }
+    echo "<h2>Just the capitals...<br></h2>";
+    $values = array_values($capitals); //Get values of array
+    foreach($values as $value){
+        echo $value."<br>";
+    }
+
+    $flippedCapitals = array_flip($capitals); //Flips key value pairs
+    echo "<h2>Flipped key value pairs...<br></h2>";
+    foreach($flippedCapitals as $key => $value){
+        echo "The capital of $key is $value<br>";
+    }
+
+    //pop and shift
+    $food = array("Pizza", "Pasta", "Salad", "Bread");
+    array_pop($food); //Removes last element
+    array_shift($food); //Removes first element
+    echo "<h2>Some Food... :</h2>";
+    foreach($food as $f){
+        echo "$f<br>";
+    }
+
+    // isset() and empty()
+    $name = "Wyatt";
+    $age = null;
+    if(isset($name)){
+        echo "Name is set<br>";
+    }else{
+        echo "Name is not set<br>";
+    }
+
+    if(empty($age)){
+        echo "Age is empty<br>";
+    }else{
+        echo "Age is not empty<br>";
+    }
+
+
 
 
 ?>

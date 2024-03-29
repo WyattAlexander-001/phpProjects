@@ -22,6 +22,18 @@
         <input type="submit" value="Submit"><br>
     </form>
 
+    <form action="index.php" method="post">
+        <label>X: </label><br>
+        <input type="text" name="x" id="x"><br>
+        <input type="submit" value="TOTAL"><br>
+    </form>
+
+    <form action="index.php" method="post">
+        <label>Radius: </label><br>
+        <input type="text" name="radius" id="radius"><br>
+        <input type="submit" value="Calculate!"><br>
+    </form>
+
     
 </body>
 </html>
@@ -66,4 +78,29 @@
     $quantity = $_POST['quantity'];
     echo "You ordered $quantity $item(s) and your total is: $".($price*$quantity)."<br>";
 
+    // Useful math functions
+    $x = $_POST["x"];
+    $total = null;
+    $total = abs($x);
+    echo "Prior to abs: ". $x."<br>";
+    echo "Total after abs: ". $total."<br>";
+
+    //Other math functions
+    echo "Ceil: ". ceil(4.6)."<br>";
+    echo "Floor: ". floor(4.6)."<br>";
+    echo "Round: ". round(4.6)."<br>";
+    echo "Max: ". max(4, 6)."<br>";
+    echo "Min: ". min(4, 6)."<br>";
+    echo "Pow: ". pow(4, 2)."<br>";
+    echo "Sqrt: ". sqrt(16)."<br>";
+    echo "Random: ". rand(1, 10)."<br>";
+
+    //Challenge area of a circle
+    $radius = $_POST["radius"];
+    $area = round(pi() * pow($radius, 2), 3);
+    $circumference = round(2 * pi() * $radius, 3);
+    $volume = round((4/3) * pi() * pow($radius, 3), 3);
+    echo "The area of a circle with a radius of $radius is $area<br>"; 
+    echo "The circumference of a circle with a radius of $radius is $circumference<br>";
+    echo "The volume of a circle with a radius of $radius is $volume<br>";
 ?>

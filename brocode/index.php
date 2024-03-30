@@ -291,6 +291,12 @@
 
 
 
+    setcookie("name", "Wyatt", time() + (86400*2),"/" ); //Set cookie for 2 days
+
+    //Hashing
+    $password = "password";
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    echo "Hashed password: $hashedPassword<br>";
 
 
 
